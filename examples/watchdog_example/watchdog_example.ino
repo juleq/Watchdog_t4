@@ -15,4 +15,7 @@ void loop() {
 
 void myCallback() {
   Serial4.println("GET READY TO RESET!");
+  Serial4.print("Last reset cause: ");
+  if ( wdt.lastReset() == WDOG_WRSR_POR ) Serial4.println("Power On Reset!");
+  else if ( wdt.lastReset() == WDOG_WRSR_TOUT ) Serial4.println("Timeout Reset!");
 }
