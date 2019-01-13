@@ -13,6 +13,7 @@ class watchdog_class {
     void setTrigger(float val);
     bool setPin(uint8_t pin);
     void feed();
+    void reset();
     void loop() { feed(); }
     void callback(watchdog_class_ptr handler);
     uint16_t lastReset() { return WDOG1_WRSR; }
