@@ -38,7 +38,7 @@ void watchdog_class::setTimeout(float val) {
   if ( val < 0.5f ) val = 0.5f;
   else if ( val > 128 ) val = 128;
   uint8_t value = (float)((  val / 0.5f) - 1);
-  WDOG1_WCR |= (WDOG1_WCR & ~WDOG_WCR_WT) | value << 8;
+  WDOG1_WCR |= (WDOG1_WCR & ~WDOG_WCR_WT(1)) | value << 8;
 }
 
 bool watchdog_class::setPin(uint8_t pin) {
